@@ -1,0 +1,27 @@
+{
+  "armoireApp": {
+    "utilisation": {
+      "home": {
+        "title": "Utilisations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Utilisation",
+        "createOrEditLabel": "Créer ou éditer un Utilisation",
+        "notFound": "Aucun Utilisation trouvé"
+      },
+      "created": "Un nouveau Utilisation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Utilisation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Utilisation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Utilisation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Utilisation"
+      },
+      "id": "ID",
+      "element": "Element",
+      "etat": "Etat",
+      "nombre": "Nombre",
+      "situation": "Situation"
+    }
+  }
+}

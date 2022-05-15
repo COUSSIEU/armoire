@@ -1,0 +1,45 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515214921",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "disponibilite",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "observable",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "Status",
+      "fieldTypeJavadoc": "The Status enumeration.",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "OK,KO,WARNING"
+    },
+    {
+      "fieldName": "remarques",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Une disponibilité décrit l'état d'un composant d'armoire à un instant donné.",
+  "jpaMetamodelFiltering": false,
+  "name": "Disponibilite",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "situation",
+      "otherEntityRelationshipName": "disponibilites",
+      "relationshipName": "situation",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

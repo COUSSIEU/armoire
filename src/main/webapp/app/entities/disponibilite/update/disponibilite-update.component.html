@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-disponibilite-heading"
+        data-cy="DisponibiliteCreateUpdateHeading"
+        jhiTranslate="armoireApp.disponibilite.home.createOrEditLabel"
+      >
+        Create or edit a Disponibilite
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armoireApp.disponibilite.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armoireApp.disponibilite.observable" for="field_observable">Observable</label>
+          <input
+            type="text"
+            class="form-control"
+            name="observable"
+            id="field_observable"
+            data-cy="observable"
+            formControlName="observable"
+          />
+          <div *ngIf="editForm.get('observable')!.invalid && (editForm.get('observable')!.dirty || editForm.get('observable')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('observable')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armoireApp.disponibilite.etat" for="field_etat">Etat</label>
+          <select class="form-control" name="etat" formControlName="etat" id="field_etat" data-cy="etat">
+            <option [ngValue]="null">{{ 'armoireApp.Status.null' | translate }}</option>
+            <option *ngFor="let status of statusValues" [value]="status">{{ 'armoireApp.Status.' + status | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('etat')!.invalid && (editForm.get('etat')!.dirty || editForm.get('etat')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('etat')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armoireApp.disponibilite.remarques" for="field_remarques">Remarques</label>
+          <input type="text" class="form-control" name="remarques" id="field_remarques" data-cy="remarques" formControlName="remarques" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armoireApp.disponibilite.situation" for="field_situation">Situation</label>
+          <select class="form-control" id="field_situation" data-cy="situation" name="situation" formControlName="situation">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="situationOption.id === editForm.get('situation')!.value?.id ? editForm.get('situation')!.value : situationOption"
+              *ngFor="let situationOption of situationsSharedCollection; trackBy: trackSituationById"
+            >
+              {{ situationOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

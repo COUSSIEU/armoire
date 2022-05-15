@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515214919",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "version",
+  "fields": [
+    {
+      "fieldName": "appareil",
+      "fieldType": "Appareil",
+      "fieldTypeJavadoc": "The Appareil enumeration.",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PRUNION,VIGNON"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "A Version.",
+  "jpaMetamodelFiltering": false,
+  "name": "Version",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "situation",
+      "otherEntityRelationshipName": "versions",
+      "relationshipName": "situation",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,55 @@
+/**
+ * A Situation.
+ */
+entity Situation {
+    creation String required
+    emission String 
+    secondDate String 
+}
+
+/**
+ * The Appareil enumeration.
+ */
+enum Appareil {
+    PRUNION,VIGNON
+}
+/**
+ * A Version.
+ */
+entity Version  {
+    appareil Appareil required
+    version String required
+    nombre Long required
+}
+
+/**
+ * A Utilisation.
+ */
+entity Utilisation  {
+    element String required
+    etat String required
+    nombre Long required
+}
+
+
+/**
+ * The Status enumeration.
+ */
+enum Status {
+    OK,KO,WARNING
+}
+/**
+ * Une disponibilité décrit l'état d'un composant d'armoire à un instant donné.
+ */
+entity Disponibilite  {
+    nom 		String required
+    observable 	String required
+    etat 		Status required
+    remarques 	String 
+}
+
+relationship OneToMany {
+    Situation{versions} to Version{situation},
+    Situation{utilisations} to Utilisation{situation},
+    Situation{disponibilites} to Disponibilite{situation}
+}

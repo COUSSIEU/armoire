@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515214920",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "utilisation",
+  "fields": [
+    {
+      "fieldName": "element",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "A Utilisation.",
+  "jpaMetamodelFiltering": false,
+  "name": "Utilisation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "situation",
+      "otherEntityRelationshipName": "utilisations",
+      "relationshipName": "situation",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,29 @@
+{
+  "armoireApp": {
+    "situation": {
+      "home": {
+        "title": "Situations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Situation",
+        "createOrEditLabel": "Create or edit a Situation",
+        "notFound": "No Situations found"
+      },
+      "created": "A new Situation is created with identifier {{ param }}",
+      "updated": "A Situation is updated with identifier {{ param }}",
+      "deleted": "A Situation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Situation {{ id }}?"
+      },
+      "detail": {
+        "title": "Situation"
+      },
+      "id": "ID",
+      "creation": "Creation",
+      "emission": "Emission",
+      "secondDate": "Second Date",
+      "versions": "Versions",
+      "utilisations": "Utilisations",
+      "disponibilites": "Disponibilites"
+    }
+  }
+}

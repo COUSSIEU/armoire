@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515214918",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "situation",
+  "fields": [
+    {
+      "fieldName": "creation",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "emission",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "secondDate",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "A Situation.",
+  "jpaMetamodelFiltering": false,
+  "name": "Situation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "version",
+      "otherEntityRelationshipName": "situation",
+      "relationshipName": "versions",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "utilisation",
+      "otherEntityRelationshipName": "situation",
+      "relationshipName": "utilisations",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "disponibilite",
+      "otherEntityRelationshipName": "situation",
+      "relationshipName": "disponibilites",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}
