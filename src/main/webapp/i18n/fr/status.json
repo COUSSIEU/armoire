@@ -1,0 +1,10 @@
+{
+  "armoireApp": {
+    "Status": {
+      "null": "",
+      "OK": "OK",
+      "KO": "KO",
+      "WARNING": "WARNING"
+    }
+  }
+}

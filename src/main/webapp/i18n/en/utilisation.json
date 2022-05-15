@@ -1,0 +1,27 @@
+{
+  "armoireApp": {
+    "utilisation": {
+      "home": {
+        "title": "Utilisations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Utilisation",
+        "createOrEditLabel": "Create or edit a Utilisation",
+        "notFound": "No Utilisations found"
+      },
+      "created": "A new Utilisation is created with identifier {{ param }}",
+      "updated": "A Utilisation is updated with identifier {{ param }}",
+      "deleted": "A Utilisation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Utilisation {{ id }}?"
+      },
+      "detail": {
+        "title": "Utilisation"
+      },
+      "id": "ID",
+      "element": "Element",
+      "etat": "Etat",
+      "nombre": "Nombre",
+      "situation": "Situation"
+    }
+  }
+}

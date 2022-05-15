@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="DisponibiliteHeading">
+    <span jhiTranslate="armoireApp.disponibilite.home.title">Disponibilites</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="armoireApp.disponibilite.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-disponibilite"
+        [routerLink]="['/disponibilite/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="armoireApp.disponibilite.home.createLabel"> Create a new Disponibilite </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="disponibilites?.length === 0">
+    <span jhiTranslate="armoireApp.disponibilite.home.notFound">No disponibilites found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="disponibilites && disponibilites.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="armoireApp.disponibilite.nom">Nom</span></th>
+          <th scope="col"><span jhiTranslate="armoireApp.disponibilite.observable">Observable</span></th>
+          <th scope="col"><span jhiTranslate="armoireApp.disponibilite.etat">Etat</span></th>
+          <th scope="col"><span jhiTranslate="armoireApp.disponibilite.remarques">Remarques</span></th>
+          <th scope="col"><span jhiTranslate="armoireApp.disponibilite.situation">Situation</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let disponibilite of disponibilites; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/disponibilite', disponibilite.id, 'view']">{{ disponibilite.id }}</a>
+          </td>
+          <td>{{ disponibilite.nom }}</td>
+          <td>{{ disponibilite.observable }}</td>
+          <td jhiTranslate="{{ 'armoireApp.Status.' + disponibilite.etat }}">{{ disponibilite.etat }}</td>
+          <td>{{ disponibilite.remarques }}</td>
+          <td>
+            <div *ngIf="disponibilite.situation">
+              <a [routerLink]="['/situation', disponibilite.situation?.id, 'view']">{{ disponibilite.situation?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/disponibilite', disponibilite.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/disponibilite', disponibilite.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(disponibilite)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

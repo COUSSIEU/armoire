@@ -1,0 +1,28 @@
+{
+  "armoireApp": {
+    "disponibilite": {
+      "home": {
+        "title": "Disponibilites",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Disponibilite",
+        "createOrEditLabel": "Create or edit a Disponibilite",
+        "notFound": "No Disponibilites found"
+      },
+      "created": "A new Disponibilite is created with identifier {{ param }}",
+      "updated": "A Disponibilite is updated with identifier {{ param }}",
+      "deleted": "A Disponibilite is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Disponibilite {{ id }}?"
+      },
+      "detail": {
+        "title": "Disponibilite"
+      },
+      "id": "ID",
+      "nom": "Nom",
+      "observable": "Observable",
+      "etat": "Etat",
+      "remarques": "Remarques",
+      "situation": "Situation"
+    }
+  }
+}
